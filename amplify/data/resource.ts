@@ -6,9 +6,29 @@ const schema = a.schema({
       name:a.string(),
       description: a.string(),
       image: a.string(),
-    })
-    .authorization((allow) => [allow.owner()]),
-});
+    }),
+    Patient: a
+    .model({
+      firstName: a.string(),
+      lastName: a.string(),
+      dob: a.date(),
+      weight: a.float(),
+      phone: a.phone(),
+      email: a.email(),
+      fatherName: a.string(),
+      motherName: a.string(),
+      notes: a.string(),
+      visits: a.hasMany('Visit', 'patientId')
+    }),
+    Visit: a
+    .model({
+      reason: a.string(),
+      notes: a.string(),
+      prescription: a.string(),
+      patientId: a.id(),
+      patient: a.belongsTo('Patient', 'patientId')
+    }),
+}).authorization((allow) => [allow.owner()]);
 
 export type Schema = ClientSchema<typeof schema>;
 
