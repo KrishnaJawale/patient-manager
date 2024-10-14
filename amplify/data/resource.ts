@@ -19,9 +19,10 @@ const schema = a.schema({
       motherName: a.string(),
       notes: a.string(),
       visits: a.hasMany('Visit', 'patientId')
-    }),
+    }).secondaryIndexes((index)=> [index('phone').sortKeys(['lastName', 'firstName']).name('byPhone').queryField('patientByPhone'), index('email').sortKeys(['lastName', 'firstName']).name('byEmail').queryField('patientByEmail'), index('dob').sortKeys(['lastName', 'firstName']).name('byDob').queryField('patientByDob')]),
     Visit: a
     .model({
+      visitDateTime: a.datetime(),
       reason: a.string(),
       notes: a.string(),
       prescription: a.string(),
