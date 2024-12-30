@@ -47,6 +47,9 @@ export default function AddPatient () {
             phone: phone,
             email: email,
             weight: weight,
+            height: height,
+            address: address,
+            gender: gender,
             fatherName: fatherName,
             motherName: motherName,
             notes: "",
@@ -67,7 +70,7 @@ export default function AddPatient () {
                         Add New Patient
                     </Typography>  
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent sx={{mt: 2}}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Typography variant="h6">Patient Information</Typography>
@@ -76,7 +79,7 @@ export default function AddPatient () {
                             <TextField fullWidth label="First Name" variant="outlined" onChange={(e) => {setFirstName(e.target.value)}}/>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField fullWidth  label="Last Name" variant="outlined" onChange={(e) => {setLastName(e.target.value)}}/>
+                            <TextField fullWidth label="Last Name" variant="outlined" onChange={(e) => {setLastName(e.target.value)}}/>
                         </Grid>
                         <Grid item xs={2}>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -89,30 +92,32 @@ export default function AddPatient () {
                             </LocalizationProvider>
                         </Grid>              
                         <Grid item xs={2}>
-                            <FormControl fullWidth>
+                            <FormControl size="small" fullWidth>
                                 <InputLabel id="demo-simple-select-label">Gender</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     label="Gender"
+                                    value={gender}
+                                    onChange={(e) => setGender(e.target.value)}
                                 >
-                                    <MenuItem value={1}>Male</MenuItem>
-                                    <MenuItem value={2}>Female</MenuItem>
+                                    <MenuItem value={"MALE"}>Male</MenuItem>
+                                    <MenuItem value={"FEMALE"}>Female</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>
                         <Grid item xs={2}>
-                            <TextField fullWidth  label="Weight (kg)" variant="outlined" 
+                            <TextField fullWidth label="Weight (kg)" variant="outlined" 
                             onChange={(e) => {setWeight(parseFloat(e.target.value))}}/>
                         </Grid>
                         <Grid item xs={2}>
-                            <TextField fullWidth  label="Height (m)" variant="outlined" 
+                            <TextField fullWidth label="Height (m)" variant="outlined" 
                             onChange={(e) => {setHeight(parseFloat(e.target.value))}}/>
                         </Grid>
                         <Grid item xs={12}>
                             <Typography variant="h6" sx={{mt: 3}}>Contact</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField fullWidth  label="Father Name" variant="outlined" onChange={(e) => {setFatherName(e.target.value)}}/>
+                            <TextField fullWidth label="Father Name" variant="outlined" onChange={(e) => {setFatherName(e.target.value)}}/>
                         </Grid>
                         <Grid item xs={3}>
                             <TextField fullWidth  label="Mother Name" variant="outlined" onChange={(e) => {setMotherName(e.target.value)}}/>
@@ -124,7 +129,7 @@ export default function AddPatient () {
                             <TextField fullWidth  label="Email" variant="outlined" onChange={(e) => {setEmail(e.target.value)}}/>
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField fullWidth  label="Address" variant="outlined"/>
+                            <TextField fullWidth  label="Address" variant="outlined" onChange={(e) => {setAddress(e.target.value)}}/>
                         </Grid>
                     </Grid>
                 </DialogContent>

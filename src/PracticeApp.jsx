@@ -14,14 +14,15 @@ export default function PracticeApp() {
     <Authenticator>
       {({ signOut }) => (
           <Container>
-            <Box>
-              <Typography variant="h3" sx={{textAlign: "center", mt: 4, mb: 3}}>
-                Patient Management
-              </Typography>
+            <Box display= "flex" alignItems="center" justifyContent="space-between" sx={{mt: 3, mb:3}}>
+                <Typography variant="h3" sx={{ml:9.5, flexGrow: 1, textAlign: "center"}}>
+                  Patient Management
+                </Typography>
+                <Button onClick={signOut} sx={{marginLeft: "auto"}}>Sign Out</Button>
             </Box>
+            
             <AddPatient></AddPatient>
             <PatientTable></PatientTable>
-            <Button onClick={signOut} sx={{mt: 4}}>Sign Out</Button>
           </Container>
       )}
     </Authenticator>
