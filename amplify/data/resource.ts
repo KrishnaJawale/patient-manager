@@ -13,6 +13,9 @@ const schema = a.schema({
       lastName: a.string(),
       dob: a.date(),
       weight: a.float(),
+      height: a.float(),
+      address: a.string(),
+      gender: a.string(),
       phone: a.phone(),
       email: a.email(),
       fatherName: a.string(),
@@ -26,6 +29,7 @@ const schema = a.schema({
       reason: a.string(),
       notes: a.string(),
       prescription: a.string(),
+      diagnosis: a.string(),
       patientId: a.id(),
       patient: a.belongsTo('Patient', 'patientId')
     }),
