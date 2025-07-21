@@ -111,9 +111,9 @@ const Patient = ({patientId}) => {
         const currentDateFormatted = currentDate.toISOString().slice(0, 10);
 
         const prescriptionPDF = new jsPDF();
-        prescriptionPDF.text("Pushpai Childrens Clinic", 20, 20);
-        prescriptionPDF.text("Clinic Address Here", 20, 30);
-        prescriptionPDF.text("Dr. Amol Jawale", 20, 40);
+        prescriptionPDF.text("[ENTER CLINIC NAME]", 20, 20);
+        prescriptionPDF.text("[ENTER CLINIC ADDRESS]", 20, 30);
+        prescriptionPDF.text("[ENTER DOCTOR NAME]", 20, 40);
         prescriptionPDF.text(`Patient: ${patientData.firstName} ${patientData.lastName}`, 20, 70);
         prescriptionPDF.text(`Birth Date: ${patientData.dob}`, 20, 80);
         prescriptionPDF.text("Diagnosis:", 20, 110);
