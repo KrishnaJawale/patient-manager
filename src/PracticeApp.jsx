@@ -16,7 +16,7 @@ export default function PracticeApp() {
           <Container>
             <Box display= "flex" alignItems="center" justifyContent="space-between" sx={{mt: 3, mb:3}}>
                 <Typography variant="h3" sx={{ml:9.5, flexGrow: 1, textAlign: "center"}}>
-                  Patient Management
+                  Patient Management System
                 </Typography>
                 <Button onClick={signOut} sx={{marginLeft: "auto"}}>Sign Out</Button>
             </Box>
