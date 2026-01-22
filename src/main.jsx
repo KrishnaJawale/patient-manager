@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import PracticeApp from './PracticeApp.jsx';
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

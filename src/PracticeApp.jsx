@@ -1,18 +1,30 @@
-import outputs from "../amplify_outputs.json";
+//import outputs from "../amplify_outputs.json";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";
-import Container from '@mui/material/Container';
+import { Container, Button } from "@mui/material";
+import {
+  Authenticator,
+} from "@aws-amplify/ui-react";
 import { Box, Typography } from "@mui/material";
-Amplify.configure(outputs);
-const client = generateClient({
-  authMode: "userPool",
-});
+import PatientTable from "./components/PatientTable"
+import AddPatient from "./components/AddPatient";
 
 export default function PracticeApp() {
-    return <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-      <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          My Practice App
-        </Typography>
-      </Box></Container>
+  return (
+    <Authenticator>
+      {({ signOut }) => (
+          <Container>
+            <Box display= "flex" alignItems="center" justifyContent="space-between" sx={{mt: 3, mb:3}}>
+                <Typography variant="h3" sx={{ml:9.5, flexGrow: 1, textAlign: "center"}}>
+                  Patient Management
+                </Typography>
+                <Button onClick={signOut} sx={{marginLeft: "auto"}}>Sign Out</Button>
+            </Box>
+            
+            <AddPatient></AddPatient>
+            <PatientTable></PatientTable>
+          </Container>
+      )}
+    </Authenticator>
+  )
 }
